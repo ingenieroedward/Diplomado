@@ -18,14 +18,14 @@ import Footer from '../../components/principal/Footer.vue'
             <div v-for="usuario in usuarioMe" class="rounded-xl  bg-white px-5 flex justify-center flex-wrap py-4">
                 <div class="flex flex-wrap justify-start mb-8 px-6">
                     <div>
-                        <img class="w-60 mr-12 rounded-full" src="@/assets/images/usuario-sin-foto.png" alt="">
-                    <input class="hidden" id="fperfil" type="file">
+                        <img id="img" class="w-60 mr-12 rounded-full" src="@/assets/images/usuario-sin-foto.png" alt="">
+                        <input  class="hidden" id="fperfil" type="file" accept="image/png, image/jpeg">
                     <label  class="w-full block ml-12 cursor-pointer text-center" for="fperfil"><i class="bi bi-pencil-square"></i></label>
                     </div>
                     
                     <div class="mt-12 mr-12 w-80">
                         <h1 class="w-64">{{usuario.FirstName}} {{usuario.LastName}}</h1>
-                        <p class="w-64">{{usuario.Services}}</p>
+                        <p class="w-64">{{usuario.Service}}</p>
                         <p class="w-64">{{usuario.Description}}</p>
                         <p><strong>Mi Calificación:</strong> <i>{{usuario.Qualification}}</i></p>
                     </div>
@@ -71,7 +71,8 @@ import axios from "axios"
 export default {
     data() {
         return {
-            usuarios: []
+            usuarios: [],
+            
         }
     },
     mounted() {
@@ -91,6 +92,11 @@ export default {
     computed:{
         usuarioMe(){
             return this.usuarios.filter(user=> user.id==this.$route.params.id);
+        }
+    },
+    methods:{
+        verfoto(){
+            console.log(document.getElementById('fperfil').value)
         }
     }
 }
