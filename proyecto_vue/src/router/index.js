@@ -91,6 +91,14 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
       }
+    },
+    {
+      path: '/recuperar',
+      name: 'recuperar',
+      component: () => import('../paginas/usuarios/Recuperar.vue'),
+      meta: {
+        requiresAuth: true,
+      }
     }
   ]
 })

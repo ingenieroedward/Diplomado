@@ -1,3 +1,4 @@
+
 <template>
     <section id="section" class="hidden registar-iniciar flex justify-center items-center">
 
@@ -164,7 +165,7 @@
                 </div>
                 <input @click="mostrarcontraseña('inputL')" id="mostrarL" type="checkbox"><label for="mostrarL">
                     Mostrar contraseñas</label>
-                <a href="recuperar.html" class="text-blue-700 hover:underline text-center block mb-4">¿Has olvidado tu
+                <a @click="recuperar" class="text-blue-700 hover:underline text-center block mb-4">¿Has olvidado tu
                     contaseña?</a>
 
                 <button
@@ -201,6 +202,9 @@ export default {
             })
     },
     methods: {
+        recuperar(){
+            this.$router.push('/recuperar')
+        },
         ocultarsection() {
             let divregistar = document.getElementById('divregistrar');
             let sectionRegistro = document.getElementById('section');
