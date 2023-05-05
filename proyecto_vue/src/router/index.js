@@ -31,6 +31,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/welcome/:id(\\d+)',
+      name: 'welcome',
+      component: () => import('../paginas/usuarios/Welcome.vue'),
+      meta: {
+        requiresAuth: true,
+        
+      }
+    },
+    {
       path: '/services/:id(\\d+)',
       name: 'servicios',
       component: () => import('../paginas/usuarios/Services.vue'),

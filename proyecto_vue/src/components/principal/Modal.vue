@@ -70,12 +70,12 @@
                 <div class="flex justify-between w-full">
                     <div style="width: 49%;">
                         <label for="password">Contraseña</label>
-                        <input v-model="contrasenaR" class="w-full mb-4 p-1" id="password" type="password"
+                        <input v-model="contrasenaR" class="w-full mb-4 p-1 inputR" id="password" type="password"
                             placeholder="Escriba una contaseña" required>
                     </div>
                     <div style="width: 49%;">
                         <label for="confirmar">Confirmar</label>
-                        <input v-model="contrasenaCR" class="w-full mb-4 p-1" id="confirmar" type="password"
+                        <input v-model="contrasenaCR" class="w-full mb-4 p-1 inputR" id="confirmar" type="password"
                             placeholder="Confirme la contraseña" required>
                     </div>
                 </div>
@@ -93,7 +93,8 @@
                         <span class="font-medium">Contraseñas no coinciden</span>
                     </div>
                 </div>
-
+                <input @click="mostrarcontraseña('inputR')" id="mostrarE" type="checkbox"><label for="mostrarE">
+                    Mostrar contraseñas</label><br>
                 <input class="mb-4" type="checkbox" name="" id="legal" required><label for="legal"> Acepto los <a
                         class="text-blue-700 hover:underline" href="#">Términos y condiciones</a></label>
                 <button
@@ -125,10 +126,6 @@
                 </div>
               </div>
             <form @submit.prevent="inciarsesion">
-                <label for="emaill">Email</label>
-
-                <input v-model="emailL" class="w-full mb-4 p-1" type="email" name="email" id="emaill"
-                    placeholder="Escriba su correo electronico" required>
                 <div id="emailError"
                     class="flex hidden p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
                     role="alert">
@@ -143,8 +140,13 @@
                         <span class="font-medium">Email no registrado!</span>
                     </div>
                 </div>
+                <label for="emaill">Email</label>
+
+                <input v-model="emailL" class="w-full mb-4 p-1" type="email" name="email" id="emaill"
+                    placeholder="Escriba su correo electronico" required>
+                
                 <label for="contraseñal">Contraseña</label>
-                <input v-model="contrasenaL" class="w-full mb-4 p-1" type="password" name="contraseña" id="contraseñal"
+                <input v-model="contrasenaL" class="w-full mb-4 p-1 inputL" type="password" name="contraseña" id="contraseñal"
                     placeholder="Escriba su contraseña" required>
                 <div id="contrasenaError"
                     class="flex hidden p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
@@ -160,6 +162,8 @@
                         <span class="font-medium">Contraseña incorrecta!</span>
                     </div>
                 </div>
+                <input @click="mostrarcontraseña('inputL')" id="mostrarL" type="checkbox"><label for="mostrarL">
+                    Mostrar contraseñas</label>
                 <a href="recuperar.html" class="text-blue-700 hover:underline text-center block mb-4">¿Has olvidado tu
                     contaseña?</a>
 
@@ -229,12 +233,12 @@ export default {
                         document.getElementById('emailError').classList.remove('hidden')
                         setTimeout(() => { document.getElementById('emailError').classList.add('hidden') }, 3000)
                     } else if (usuario[0].Password === this.contrasenaL && usuario[0].Service === 'Administrador') {
-                        alert('Bienvenido');
+                        alert('Bienvenido Admin');
                         return this.$router.push('/admin/' + usuario[0].id);
                     } else if(usuario[0].Password === this.contrasenaL){
                         document.getElementById('inicioexitoso').classList.remove('hidden')
                         setTimeout(() => { document.getElementById('inicioexitoso').classList.add('hidden') }, 3000)
-                        setTimeout(() => { return this.$router.push('/home/' + usuario[0].id) }, 4000)
+                        setTimeout(() => { return this.$router.push('/welcome/' + usuario[0].id) }, 4000)
                         
                     }else{
                         document.getElementById('contrasenaError').classList.remove('hidden')
@@ -285,6 +289,10 @@ export default {
                 setTimeout(() => { document.getElementById('errorcontrasena').classList.add('hidden') }, 3000)
             }
 
+        },
+        mostrarcontraseña(clase) {
+            let inputs = document.querySelectorAll('.' + clase)
+            inputs.forEach(input => input.getAttribute('type') === 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type', 'password'));
         }
     }
 }

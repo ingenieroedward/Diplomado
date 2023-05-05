@@ -14,7 +14,7 @@ import Footer from '../../components/principal/Footer.vue'
                     <button class="bg-transparent border-none"><i class="bi bi-chevron-down"></i>
                         <i class="bi bi-chevron-up hidden"></i></button>
                 </h2>
-                <form @submit="actualizarDatos" id="form1" class="w-80 hidden px-4 py-2 rounded-xl">
+                <form @submit.prevent="actualizarDatos" id="form1" class="w-80 hidden px-4 py-2 rounded-xl">
                     <div id="info"
                         class="hidden flex p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50"
                         role="alert">
@@ -91,7 +91,8 @@ import Footer from '../../components/principal/Footer.vue'
                     <input v-model="cNueva" class="w-full input p-1 mb-4 inputCC" type="password" id="c-nueva" required>
 
                     <label class="w-full block" for="c-confrimar">Confirmar contraseña</label>
-                    <input v-model="cConfirm" class="w-full input p-1 mb-4 inputCC" type="password" id="c-confirmar" required>
+                    <input v-model="cConfirm" class="w-full input p-1 mb-4 inputCC" type="password" id="c-confirmar"
+                        required>
                     <div id="errorcontrasena"
                         class="flex hidden p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
                         role="alert">
@@ -106,7 +107,8 @@ import Footer from '../../components/principal/Footer.vue'
                             <span class="font-medium">Contraseñas no coinciden</span>
                         </div>
                     </div>
-                    <input @click="mostrarcontraseña('inputCC')" id="mostrarC" type="checkbox"><label for="mostrarC"> Mostrar contraseñas</label>
+                    <input @click="mostrarcontraseña('inputCC')" id="mostrarC" type="checkbox"><label for="mostrarC">
+                        Mostrar contraseñas</label>
                     <div class="flex justify-center mt-4">
                         <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -133,7 +135,8 @@ import Footer from '../../components/principal/Footer.vue'
 
                     <label class="w-full block" for="contaseña">Contraseña</label>
                     <input v-model="ceActual" class="w-full input p-1 mb-4 inputCE" type="password" id="contaseña">
-                    <input @click="mostrarcontraseña('inputCE')" id="mostrarE" type="checkbox"><label for="mostrarE"> Mostrar contraseñas</label>
+                    <input @click="mostrarcontraseña('inputCE')" id="mostrarE" type="checkbox"><label for="mostrarE">
+                        Mostrar contraseñas</label>
                     <div id="EcontrasenaError"
                         class="flex hidden p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
                         role="alert">
@@ -162,7 +165,7 @@ import Footer from '../../components/principal/Footer.vue'
             </div>
         </section>
         <section class="w-full flex justify-center">
-            <button type="button"
+            <button @click="eliminar" type="button"
                 class="w-80 text-white text-lg bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">
                 Eliminar cuenta</button>
 
@@ -186,7 +189,7 @@ export default {
             cConfirm: '',
             eNuevo: '',
             eActual: '',
-            ceActual:''
+            ceActual: ''
 
 
         }
@@ -307,47 +310,58 @@ export default {
                     });
                 } else {
                     document.getElementById('errorcontrasena').classList.remove('hidden');
-                setTimeout(() => { document.getElementById('errorcontrasena').classList.add('hidden') }, 3000)
-          
+                    setTimeout(() => { document.getElementById('errorcontrasena').classList.add('hidden') }, 3000)
+
                 }
             } else {
                 document.getElementById('contrasenaError').classList.remove('hidden')
-                        setTimeout(() => { document.getElementById('contrasenaError').classList.add('hidden') }, 3000)
+                setTimeout(() => { document.getElementById('contrasenaError').classList.add('hidden') }, 3000)
 
             }
 
         },
-        cambiarEmail(){
+        cambiarEmail() {
             if (this.ceActual === this.usuario[0].Password && this.eActual === this.usuario[0].Email) {
-                    axios.put('https://apigenerator.dronahq.com/api/povu1PnC/prestaservi/' + this.$route.params.id, {
-                        FirstName: this.usuario[0].FirstName,
-                        LastName: this.usuario[0].LastName,
-                        PhoneNumber: this.usuario[0].PhoneNumber,
-                        Description: this.usuario[0].Description,
-                        Service: this.usuario[0].Service,
-                        Email: this.eNuevo,
-                        Password: this.usuario[0].Password,
-                        Photo: this.usuario[0].Photo,
-                        Images: this.usuario[0].Images,
-                        Qualification: this.usuario[0].Qualification,
-                        Votes: this.usuario[0].Votes,
-                        Users: this.usuario[0].Users
+                axios.put('https://apigenerator.dronahq.com/api/povu1PnC/prestaservi/' + this.$route.params.id, {
+                    FirstName: this.usuario[0].FirstName,
+                    LastName: this.usuario[0].LastName,
+                    PhoneNumber: this.usuario[0].PhoneNumber,
+                    Description: this.usuario[0].Description,
+                    Service: this.usuario[0].Service,
+                    Email: this.eNuevo,
+                    Password: this.usuario[0].Password,
+                    Photo: this.usuario[0].Photo,
+                    Images: this.usuario[0].Images,
+                    Qualification: this.usuario[0].Qualification,
+                    Votes: this.usuario[0].Votes,
+                    Users: this.usuario[0].Users
 
-                    }).then(function (response) {
-                        console.log(response.data);
+                }).then(function (response) {
+                    console.log(response.data);
 
-                    }).catch(function (error) {
-                        console.log(error)
-                    });
+                }).catch(function (error) {
+                    console.log(error)
+                });
             } else {
                 document.getElementById('EcontrasenaError').classList.remove('hidden')
-                        setTimeout(() => { document.getElementById('EcontrasenaError').classList.add('hidden') }, 3000)
+                setTimeout(() => { document.getElementById('EcontrasenaError').classList.add('hidden') }, 3000)
 
             }
         },
-        mostrarcontraseña(clase){
-            let inputs = document.querySelectorAll('.'+clase)
-            inputs.forEach(input => input.getAttribute('type')==='password'?input.setAttribute('type','text'):input.setAttribute('type','password'));
+        mostrarcontraseña(clase) {
+            let inputs = document.querySelectorAll('.' + clase)
+            inputs.forEach(input => input.getAttribute('type') === 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type', 'password'));
+        },
+        eliminar() {
+            if(confirm('¿Estas seguro que quieres eliminar tu cuenta?')){
+                axios.delete('https://apigenerator.dronahq.com/api/povu1PnC/prestaservi/' + this.$route.params.id)
+                .then(response => {
+                    console.log(response);
+                    alert('Te estaremos esperando, vuelve pronto')
+                    this.$router.push('/');
+                });
+            }
+           
         }
     }
 }

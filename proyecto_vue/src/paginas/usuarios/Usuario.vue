@@ -20,7 +20,7 @@ import Footer from '../../components/principal/Footer.vue'
                     </div>
                     <div class="mt-12 mr-12 ">
                         <h2 class="mb-2">Contactar usuario</h2>
-                        <button type="button"
+                        <button @click="contactarW" type="button"
                             class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                             <i class="bi bi-whatsapp text-lg"></i> Whatsapp</button>
                         <button type="button"
@@ -59,6 +59,7 @@ import Footer from '../../components/principal/Footer.vue'
                 </div>
             </div>
         </section>
+        {{this.mostarUser}}
     </article>
     <Footer />
 </template>
@@ -68,6 +69,7 @@ export default {
     data() {
         return {
             usuarios: [],
+            usuario:[],
             id: this.$route.params.id
         }
     },
@@ -76,7 +78,12 @@ export default {
             .then(response => {
                 // manejar respuesta exitosa
                 this.usuarios = response.data
-
+                var usuarios2 = response.data
+                usuarios2.forEach(user => {
+                    if (user.id == this.$route.params.id) {
+                        this.usuario.push(user);
+                    }
+                })
             })
             .catch(e => {
                 // manejar error
@@ -166,6 +173,34 @@ export default {
             setTimeout(() => {
                 op ? document.getElementById('calificado').textContent = 'Usuario calificado: ' + value + '★' : this.limpiar()
             }, 2000)
+            var vector = this.usuario[0].Votes;
+            vector.push(parseInt(value))
+            var suma = vector.reduce((a,c)=>a+c)/vector.length
+            axios.put('https://apigenerator.dronahq.com/api/povu1PnC/prestaservi/' + this.$route.params.id, {
+                    FirstName: this.usuario[0].FirstName,
+                    LastName: this.usuario[0].LastName,
+                    PhoneNumber: this.usuario[0].PhoneNumber,
+                    Description: this.usuario[0].Description,
+                    Service: this.usuario[0].Service,
+                    Email: this.usuario[0].Email,
+                    Password: this.usuario[0].Password,
+                    Photo: this.usuario[0].Photo,
+                    Images: this.usuario[0].Images,
+                    Qualification: suma,
+                    Votes: vector,
+                    Users: this.usuario[0].Users
+
+                }).then(function (response) {
+                    console.log(response.data);
+                    location.reload()
+
+                }).catch(function (error) {
+                    console.log(error)
+                });
+        },
+        contactarW(){
+            open('https://wa.me/'+this.usuario[0].PhoneNumber+'?text=Vi esto en PrestaServi, '+this.usuario[0].FirstName
+            +' Presta servicio en: '+this.usuario[0].Service,'_blank')
         }
     }
 }
