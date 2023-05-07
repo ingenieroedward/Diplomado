@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full">
-        <header>
-            <nav class="nav h-16">
+        <header class="nav">
+            <nav>
                 <div class="container py-2 mx-auto px-2 flex flex-wrap items-center  justify-between h-full">
 
                     <div class="flex items-center h-16 ml-2">

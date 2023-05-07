@@ -59,7 +59,7 @@ import Footer from '../../components/principal/Footer.vue'
                 </div>
             </div>
         </section>
-        {{this.mostarUser}}
+   
     </article>
     <Footer />
 </template>
@@ -93,7 +93,6 @@ export default {
     computed: {
         mostarUser() {
             var usuario = [];
-            var img =  document.getElementById('foto');
             this.usuarios.forEach(user => {
                 if (user.id === parseInt(this.id)) {
                     usuario.push(user);
