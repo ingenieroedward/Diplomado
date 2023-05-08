@@ -96,6 +96,7 @@
     </section>
 </template>
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -112,7 +113,7 @@ export default {
                 this.usuarios = response.data;
             })
             .catch(e => {
-                // manejar error
+                
             })
     },
     methods: {

@@ -52,9 +52,6 @@
                 <label for="email">Email</label>
                 <input v-model="emailR" class="w-full mb-4 p-1" type="email" name="email" id="email"
                     placeholder="Escriba su correo electronico" required>
-                <label for="cell">Telefono</label>
-                <input v-model="telefonoR" class="w-full mb-4 p-1" type="text" name="cell" id="cell"
-                    placeholder="Escriba su numero telefonico" required>
                 <label for="services">Servicios prestados</label>
                 <select v-model="servicioR" class="w-full mb-4 p-2" id="search">
                     <option selected value="Ninguno selecionado...">Ninguno selecionado...</option>
