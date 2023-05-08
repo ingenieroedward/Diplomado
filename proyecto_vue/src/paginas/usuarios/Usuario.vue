@@ -1,10 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-//import Header from '../../components/others/Header.vue'
+import Modal from '../../components/others/ModalS.vue'
 import Footer from '../../components/principal/Footer.vue'
 </script>
 <template>
     <!-- <Header /> -->
+    <Modal/>
     <article class=" py-5 w-full article flex flex-wrap justify-center">
         <section class="container flex justify-center mx-auto  px-5 py-4 ">
             <div v-for="usuario in mostarUser" class="rounded-xl  bg-white px-5 flex justify-center flex-wrap py-4">
@@ -20,12 +21,10 @@ import Footer from '../../components/principal/Footer.vue'
                     </div>
                     <div class="mt-12 mr-12 ">
                         <h2 class="mb-2">Contactar usuario</h2>
-                        <button @click="contactarW" type="button"
-                            class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                            <i class="bi bi-whatsapp text-lg"></i> Whatsapp</button>
-                        <button type="button"
+                       
+                        <button @click="solicitar" type="button"
                             class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                            <i class="bi bi-envelope-at text-lg"></i> Email</button>
+                            Solicitar servicio</button>
                         <h2 class="mb-2 mt-4">Calificar usuario</h2>
                         <form class="">
                             <p id="calificado" class="clasificacion flex justify-between flex-wrap w-full">
@@ -197,9 +196,14 @@ export default {
                     console.log(error)
                 });
         },
-        contactarW(){
-            open('https://wa.me/'+this.usuario[0].PhoneNumber+'?text=Vi esto en PrestaServi, '+this.usuario[0].FirstName
-            +' Presta servicio en: '+this.usuario[0].Service,'_blank')
+        solicitar(){     
+           let section = document.getElementById('section');
+           
+           if(section.classList.contains('hidden')){
+                section.classList.remove('hidden');
+           }else{
+                section.classList.add('hidden');
+           }
         }
     }
 }
