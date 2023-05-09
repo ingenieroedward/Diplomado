@@ -99,7 +99,23 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
       }
-    }
+    },
+    {
+      path: '/servicioT',
+      name: 'servicioT',
+      component: () => import('../paginas/usuarios/ServicioT.vue'),
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/informe',
+      name: 'informe',
+      component: () => import('../paginas/usuarios/Informe.vue'),
+      meta: {
+        requiresAuth: true,
+      }
+    },
   ]
 })
 

@@ -40,7 +40,7 @@ import Modal from '../components/principal/Modal.vue'
                     <label for="registrar">
                         <button for="registrar" type="button"
                             class="text-white bg-orange-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                            <label @click="ocultarsection" for="registrar">Crear una Cuenta</label><input @click="MostarRegistro" class="hidden" id="registrar"
+                            <label @click="ocultarsection">Crear una Cuenta</label><input @click="MostarRegistro" class="hidden" id="registrar"
                                 type="checkbox"></button>
                     </label>
                 </section>
@@ -110,7 +110,7 @@ export default {
     methods: {
 
         ocultarsection() {
-            let divregistar = document.getElementById('divregistrar');
+            let divregistar = document.getElementById('divregistrarUser');
             let sectionRegistro = document.getElementById('section');
             if (sectionRegistro.classList.contains('hidden')) {
                 divregistar.classList.remove('hidden');
