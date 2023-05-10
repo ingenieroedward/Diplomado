@@ -1,10 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Header from '../../components/others/Header.vue'
+import Header from '../../components/principal/HeaderPrincipal.vue'
 import Footer from '../../components/principal/Footer.vue'
+import Modal from '../../components/principal/Modal.vue'
 </script>
 <template>
+    <Modal />
     <Header />
+    
     <article class="py-5 w-full article flex flex-wrap justify-center">
         <section class="container mx-auto px-5 py-4 rounded-xl w-full">
 

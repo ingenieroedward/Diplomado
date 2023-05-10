@@ -33,19 +33,19 @@
                 <div class="hidden md:block md:w-auto w-full" id="mobile-menu">
                     <ul class="flex flex-col  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
 
-                        <li>
-                            <a @click="home" class="cursor-pointer block py-2 pr-4 pl-3  text-gray-500"
-                                aria-current="page">Home</a>
-                        </li>
+                        
                         
                         <li>
                             <a @click="services" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Servicios</a>
                         </li>
                         <li>
-                            <a @click="services" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Notificación</a>
+                            <a @click="home" class="cursor-pointer block py-2 pr-4 pl-3  text-gray-500"
+                                aria-current="page">Listado</a>
                         </li>
                         
-
+                        <li>
+                            <a @click="perfil" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Perfíl</a>
+                        </li>
                         <li>
                             <a @click="config" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Configuración</a>
                         </li>
@@ -84,11 +84,11 @@ export default {
         },
         home(){
             let id = this.$route.params.id;
-            this.$router.push('/home/'+id)
+            this.$router.push('/informe/'+id)
         },
         services(){
             let id = this.$route.params.id;
-            this.$router.push('/services/'+id)
+            this.$router.push('/servicioT/'+id)
         },
         perfil(){
             let id = this.$route.params.id;
@@ -96,7 +96,7 @@ export default {
         },
         config(){
             let id = this.$route.params.id;
-            this.$router.push('/configuracionUser/'+id)
+            this.$router.push('/configuracion/'+id)
         },
         
     }

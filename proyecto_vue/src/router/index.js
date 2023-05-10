@@ -49,7 +49,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/conocenos/:id(\\d+)',
+      path: '/conocenos',
       name: 'conocenos',
       component: () => import('../paginas/usuarios/Conocenos.vue'),
       meta: {
@@ -85,6 +85,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/configuracionUser/:id(\\d+)',
+      name: 'configuracionuser',
+      component: () => import('../paginas/usuarios/ConfiguracionUse.vue'),
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
       path: '/admin/:id(\\d+)',
       name: 'administrador',
       component: () => import('../paginas/administrador/Admin.vue'),
@@ -101,7 +109,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/servicioT',
+      path: '/servicioT/:id(\\d+)',
       name: 'servicioT',
       component: () => import('../paginas/usuarios/ServicioT.vue'),
       meta: {
@@ -109,7 +117,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/informe',
+      path: '/informe/:id(\\d+)',
       name: 'informe',
       component: () => import('../paginas/usuarios/Informe.vue'),
       meta: {

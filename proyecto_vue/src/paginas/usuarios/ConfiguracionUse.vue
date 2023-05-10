@@ -1,19 +1,26 @@
 <script setup>
-import Header from '../../components/others/HeaderT.vue'
-import Footer from '../../components/principal/Footer.vue'
+    import Header from '../../components/others/Header.vue'
+    import Footer from '../../components/principal/Footer.vue'
 </script>
 <template>
     <Header />
     <article class=" py-5 w-full article flex flex-wrap justify-center">
         <section class="container w-full flex flex-wrap mx-auto justify-between   py-4 ">
             <h1 class="block w-full text-center mb-8">Configuración de la cuenta</h1>
-            <div id="exitoso" class="hidden flex w-full p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 " role="alert">
-                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            <div id="exitoso"
+                class="hidden flex w-full p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 "
+                role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"></path>
+                </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                  <span class="font-medium">Cambio exitosot!</span> 
+                    <span class="font-medium">Cambio exitoso!</span>
                 </div>
-              </div>
+            </div>
             <div class="mr-1 px-4 py-2 rounded-xl">
                 <h2 @click="showhidden('form1')"
                     class="cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Datos de cuenta
@@ -39,23 +46,8 @@ import Footer from '../../components/principal/Footer.vue'
                     <input v-model="nombreU" class="w-full input p-1 mb-4" type="text" id="nombre">
                     <label class="w-full block" for="apellido">Apellidos</label>
                     <input v-model="apellidoU" class="w-full input p-1 mb-4" type="text" id="apellido">
-                    <label class="w-full block" for="telefono">Teléfono</label>
-                    <input v-model="telefonoU" class="w-full input p-1 mb-4" type="text" id='telefono'>
-                    <label class="w-full block" for="descripcion">Descripción</label>
-                    <input v-model="descriptionU" class="w-full input p-1 mb-4" type="text" id='descripcion'>
-                    <label class="w-full block" for="servicio">Servicio</label>
-                    <select v-model="servicioU" class="w-full max-w-md p-2 mb-4 border-slate-400 input" id="servicio">
-                        <option selected value="Ninguno selecionado...">Ninguno selecionado...</option>
-                        <option value="Manicurista y Pedicurista">Manicurista y Pedicurista</option>
-                        <option value="Barbería">Barbería</option>
-                        <option value="Plomería">Plomería</option>
-                        <option value="Mantenimiento de teléfonos">Mantenimiento de teléfonos</option>
-                        <option value="Mantenimiento de computadoras">Mantenimiento de computadoras</option>
-                        <option value="Mantenimiento de equipos de refrigeración">Mantenimiento de equipos de refrigeración
-                        </option>
-                        <option value="Peluquería y Maquillaje">Peluquería y Maquillaje</option>
+                   
 
-                    </select>
                     <div class="flex justify-center">
                         <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -187,9 +179,6 @@ export default {
             usuario: [],
             nombreU: '',
             apellidoU: '',
-            telefonoU: '',
-            descriptionU: '',
-            servicioU: '',
             cActual: '',
             cNueva: '',
             cConfirm: '',
@@ -286,8 +275,8 @@ export default {
             }).then(function (response) {
                 console.log(response.data);
                 document.getElementById('exitoso').classList.remove('hidden');
-                        setTimeout(() => { document.getElementById('ezitoso').classList.add('hidden') }, 3000)
-                        location.reload()
+                setTimeout(() => { document.getElementById('ezitoso').classList.add('hidden') }, 3000)
+                location.reload()
 
             }).catch(function (error) {
                 console.log(error)
@@ -351,8 +340,8 @@ export default {
                 }).then(function (response) {
                     console.log(response.data);
                     document.getElementById('exitoso').classList.remove('hidden');
-                        setTimeout(() => { document.getElementById('ezitoso').classList.add('hidden') }, 3000)
-                        location.reload()
+                    setTimeout(() => { document.getElementById('ezitoso').classList.add('hidden') }, 3000)
+                    location.reload()
 
                 }).catch(function (error) {
                     console.log(error)
@@ -368,15 +357,15 @@ export default {
             inputs.forEach(input => input.getAttribute('type') === 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type', 'password'));
         },
         eliminar() {
-            if(confirm('¿Estas seguro que quieres eliminar tu cuenta?')){
+            if (confirm('¿Estas seguro que quieres eliminar tu cuenta?')) {
                 axios.delete('https://apigenerator.dronahq.com/api/povu1PnC/prestaservi/' + this.$route.params.id)
-                .then(response => {
-                    console.log(response);
-                    alert('Te estaremos esperando, vuelve pronto')
-                    this.$router.push('/');
-                });
+                    .then(response => {
+                        console.log(response);
+                        alert('Te estaremos esperando, vuelve pronto')
+                        this.$router.push('/');
+                    });
             }
-           
+
         }
     }
 }

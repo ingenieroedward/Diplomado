@@ -46,9 +46,11 @@
                     </div>
                 </div>
                 <label for="emaill">Email</label>
-
                 <input v-model="email" class="w-full mb-4 p-1" type="email" name="email" id="emaill"
                     placeholder="Escriba su correo electronico" required>
+                <label for="telefono">Teléfono</label>
+                <input v-model="telefono" class="w-full mb-4 p-1" type="text" name="telefono" id="telefono"
+                    placeholder="Escriba su teléfono" required>
 
                 <label for="fechas">Fecha</label>
                 <input v-model="fecha" class="w-full  p-1" type="date" name="fechas" id="fechas"
@@ -71,7 +73,7 @@
                 <label for="message" class="block  text-sm font-medium text-gray-900 dark:text-white">Escriba la observación</label>
                 <textarea id="message" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                    placeholder="Escriba la observación"></textarea>
+                    placeholder="Escriba la observación, dirección"></textarea>
 
                 <div id="error" class="flex hidden p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
                     role="alert">

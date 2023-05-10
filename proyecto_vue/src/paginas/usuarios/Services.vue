@@ -36,27 +36,7 @@ import Footer from '../../components/principal/Footer.vue'
             <div class="grid md:grid-cols-2 sm:grid-cols-2 gap-5 mt-6">
 
                 <div style=" " v-for="usuario in usuariosfinalT" :key="usuario.id" class="bg-white sombra">
-                    <!-- <div class="shadow-lg p-3 h-full">
-                        <div v-if="usuario.Photo === ''"><img class="foto rounded-full"
-                                src="@/assets/images/usuario-sin-foto.png"></div>
-                        <div v-else><img class="foto rounded-full" v-bind:src="usuario.Photo"></div>
-                        <p id="${usuario.id}" class="hidden">{{ usuario.id }}</p>
-                        <h3 class="text-xl mb-2 font-extrabold">{{ usuario.FirstName }} {{ usuario.LastName }}</h3>
-                        <p class="text-sm">
-                            {{ usuario.Service }}
-                        </p>
-                        <div class="calificacion mt-6 mb-4">
-                            <p>Calificación: {{ usuario.Qualification }}</p>
-
-                        </div>
-
-                        <div class="flex justify-center  items-stretch">
-                            <a @click="verusuario(usuario.id)"
-                                class=" cursor-pointer text-center text-blue-700 hover:underline">Ver usuario
-                            </a>
-
-                        </div>
-                    </div> -->
+                    
                     <a @click="verusuario(usuario.id)"
                         class="cursor-pointer flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 ">
                         <div class="w-full" v-if="usuario.Photo == ''">

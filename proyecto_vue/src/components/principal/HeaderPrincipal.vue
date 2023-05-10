@@ -30,7 +30,9 @@
                 </button>
                 <div class="hidden md:block md:w-auto w-full" id="mobile-menu">
                     <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-
+                        <li class="mt-4">
+                            <a @click="conocenos" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Conocenos</a>
+                        </li>
                         <li class="mt-4">
                             <a style="cursor:pointer;" class="block py-2 pr-4 pl-3 text-gray-500 cursor-pointer"><input
                                     class="hidden" type="checkbox" name="login" id="login"> <label  @click="mostrarLogin"  style="cursor:pointer;"
@@ -75,6 +77,10 @@ export default {
                 sectionRegistro.classList.add('hidden');
                 divlogin.classList.add('hidden');
             }
+        },
+        conocenos(){
+            
+            this.$router.push('/conocenos')
         }
     }
 }
