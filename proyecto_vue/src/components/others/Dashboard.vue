@@ -53,7 +53,11 @@
                 </li>
                 <li>
                     <a @click="home" class="cursor-pointer block py-2 pr-4 pl-3  text-gray-500" aria-current="page"><i
-                            class="bi bi-bar-chart-steps text-lg"></i> Listado Servicios</a>
+                            class="bi bi-bar-chart-steps text-lg"></i> Listado Servicios
+                            <span
+                            class="ml-2 inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full">
+                            2
+                        </span></a>
                 </li>
 
                 <li>
