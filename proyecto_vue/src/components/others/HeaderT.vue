@@ -2,7 +2,7 @@
     import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
-    <header class="nav">
+    <aside class="nav fidex left-0">
         <nav>
             <div class="container py-2 mx-auto px-2 flex flex-wrap items-center  justify-between h-full">
 
@@ -59,7 +59,7 @@
             </div>
             <hr class="mt-4">
         </nav>
-    </header>
+    </aside>
 </template>
 
 <script>

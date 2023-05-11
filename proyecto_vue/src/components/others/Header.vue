@@ -42,7 +42,7 @@
                             <a @click="services" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Servicios</a>
                         </li>
                         <li>
-                            <a @click="services" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Notificación</a>
+                            <a @click="notificacion" class="cursor-pointer block py-2 pr-4 pl-3 text-gray-500">Notificación</a>
                         </li>
                         
 
@@ -98,6 +98,10 @@ export default {
             let id = this.$route.params.id;
             this.$router.push('/configuracionUser/'+id)
         },
+        notificacion(){
+            let id = this.$route.params.id;
+            this.$router.push('/notificacion/'+id)
+        }
         
     }
 

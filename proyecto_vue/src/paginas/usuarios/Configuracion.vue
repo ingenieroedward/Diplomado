@@ -1,12 +1,12 @@
 <script setup>
-import Header from '../../components/others/HeaderT.vue'
-import Footer from '../../components/principal/Footer.vue'
+import Header from '../../components/others/Dashboard.vue'
+
 </script>
 <template>
     <Header />
-    <article class=" py-5 w-full article flex flex-wrap justify-center">
-        <section class="container w-full flex flex-wrap mx-auto justify-between   py-4 ">
-            <h1 class="block w-full text-center mb-8">Configuración de la cuenta</h1>
+    <article class=" py-5 flex flex-wrap justify-center p-4 sm:ml-64">
+        <section class="container w-full flex flex-wrap mx-auto justify-center sm:justify-between   py-4 ">
+            <h1 style="font-size: 2rem !important;" class="block w-full bg-white rounded-xl p-2 sombra text-center mb-8">Configuración de la cuenta</h1>
             <div id="exitoso" class="hidden flex w-full p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 " role="alert">
                 <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Info</span>
@@ -14,13 +14,13 @@ import Footer from '../../components/principal/Footer.vue'
                   <span class="font-medium">Cambio exitosot!</span> 
                 </div>
               </div>
-            <div class="mr-1 px-4 py-2 rounded-xl">
+            <div class="px-4 py-2 rounded-xl">
                 <h2 @click="showhidden('form1')"
-                    class="cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Datos de cuenta
+                    class="sombra cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Datos de cuenta
                     <button class="bg-transparent border-none"><i class="bi bi-chevron-down"></i>
                         <i class="bi bi-chevron-up hidden"></i></button>
                 </h2>
-                <form @submit.prevent="actualizarDatos" id="form1" class="w-80 hidden px-4 py-2 rounded-xl">
+                <form @submit.prevent="actualizarDatos" id="form1" class="sombra w-80 hidden px-4 py-2 rounded-xl">
                     <div id="info"
                         class="hidden flex p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50"
                         role="alert">
@@ -68,14 +68,14 @@ import Footer from '../../components/principal/Footer.vue'
                 </form>
 
             </div>
-            <div class="mr-1 px-4 py-2 rounded-xl">
+            <div class="mr px-4 py-2 rounded-xl">
                 <h2 @click="showhidden2('form2')"
-                    class="cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Cambiar contraseña
+                    class="cursor-pointer sombra block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Cambiar contraseña
                     <button class="bg-transparent border-none">
                         <i class="bi bi-chevron-down"></i>
                         <i class="bi bi-chevron-up hidden"></i></button>
                 </h2>
-                <form @submit.prevent="cambiarContrasena" id="form2" class="w-80 hidden px-4 py-2 rounded-xl">
+                <form @submit.prevent="cambiarContrasena" id="form2" class="sombra w-80 hidden px-4 py-2 rounded-xl">
                     <label class="w-full block" for="c-actual">Contraseña actual</label>
                     <input v-model="cActual" class="w-full input p-1 mb-4 inputCC" type="password" id="c-actual" required>
                     <div id="contrasenaError"
@@ -128,11 +128,11 @@ import Footer from '../../components/principal/Footer.vue'
             </div>
             <div class=" px-4 py-2 rounded-xl">
                 <h2 @click="showhidden3('form3')"
-                    class="cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Cambiar email
+                    class="sombra cursor-pointer block w-80 text-center mb-4 px-4 py-2 rounded-xl bg-white">Cambiar email
                     <button class="bg-transparent border-none"><i class="bi bi-chevron-down"></i>
                         <i class="bi bi-chevron-up hidden"></i></button>
                 </h2>
-                <form @submit.prevent="cambiarEmail" id="form3" class="w-80 hidden px-4 py-2 rounded-xl">
+                <form @submit.prevent="cambiarEmail" id="form3" class="w-80 hidden px-4 sombra py-2 rounded-xl">
                     <label class="w-full block" for="e-actual">Email actual</label>
                     <input v-model="eActual" class="w-full input p-1 mb-4" type="email" id="e-actual">
 
@@ -172,12 +172,12 @@ import Footer from '../../components/principal/Footer.vue'
         </section>
         <section class="w-full flex justify-center">
             <button @click="eliminar" type="button"
-                class="w-80 text-white text-lg bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">
+                class=" sombra w-80 text-white text-lg bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">
                 Eliminar cuenta</button>
 
         </section>
     </article>
-    <Footer />
+    
 </template>
 <script>
 import axios from "axios"

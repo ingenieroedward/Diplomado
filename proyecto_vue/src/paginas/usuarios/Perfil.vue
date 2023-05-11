@@ -1,11 +1,10 @@
 <script setup>
-import Header from '../../components/others/HeaderT.vue'
-import Footer from '../../components/principal/Footer.vue'
+import Header from '../../components/others/Dashboard.vue'
 </script>
 <template>
     <Header />
     
-    <article class=" py-5 w-full article flex flex-wrap justify-center">
+    <article class=" py-5 flex flex-wrap justify-center p-4 sm:ml-64">
         
         <section class="container flex flex-wrap justify-center mx-auto  px-5 py-4 ">
             <div id="alert-border-3" class="hidden flex rounded-lg p-4 mb-4 w-full text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
@@ -15,8 +14,8 @@ import Footer from '../../components/principal/Footer.vue'
                 </div>
                 
             </div>
-            <div v-for="usuario in usuarioMe" class="rounded-xl  bg-white px-5 flex justify-center flex-wrap py-4">
-                <div class="flex flex-wrap justify-start mb-8 px-6">
+            <div v-for="usuario in usuarioMe" class="rounded-xl px-5 flex justify-center flex-wrap py-4">
+                <div class="flex flex-wrap justify-start bg-gray-700 w-full sombra  rounded-xl text-gray-200 py-5 mb-8 px-6">
                     <div>
                         <img id="img" class="w-60 mr-12 rounded-full" src="@/assets/images/usuario-sin-foto.png" alt="">
                         <input  class="hidden" id="fperfil" type="file" accept="image/png, image/jpeg">
@@ -36,7 +35,7 @@ import Footer from '../../components/principal/Footer.vue'
                     </div>
                 </div>
                 
-                <div class="imagenes flex flex-wrap px-4">
+                <div class="imagenes flex flex-wrap px-4 py-2 bg-white w-full rounded-xl sombra">
                     <h2 class="mb-6 mt-6 block w-full">Trabajos Realizados</h2>
                     <div class="flex flex-wrap justify-between w-full">
                         <button type="button" class="text-lg text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full  px-5 py-2.5 mr-2 mb-2">
@@ -64,7 +63,7 @@ import Footer from '../../components/principal/Footer.vue'
 
         </section>
     </article>
-    <Footer />
+
 </template>
 <script>
 import axios from "axios"

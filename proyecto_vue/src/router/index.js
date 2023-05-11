@@ -49,6 +49,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/notificacion/:id(\\d+)',
+      name: 'notificaciones',
+      component: () => import('../paginas/usuarios/Notificacion.vue'),
+      meta: {
+        requiresAuth: true,
+        
+      }
+    },
+    {
       path: '/conocenos',
       name: 'conocenos',
       component: () => import('../paginas/usuarios/Conocenos.vue'),
@@ -120,6 +129,14 @@ const router = createRouter({
       path: '/informe/:id(\\d+)',
       name: 'informe',
       component: () => import('../paginas/usuarios/Informe.vue'),
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('../components/others/Dashboard.vue'),
       meta: {
         requiresAuth: true,
       }
